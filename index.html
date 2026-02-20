@@ -568,7 +568,7 @@ footer{background:var(--gray-dark);color:rgba(255,255,255,.75);padding:56px 0 0}
       <div class="contact-info">
         <h2>Entre em contato</h2>
         <p style="color:var(--gray);margin-bottom:24px;">Tem uma dúvida, quer sugerir um tema ou propor uma parceria?</p>
-        <div class="contact-item"><div class="contact-item-icon">📧</div><div><h4>E-mail</h4><p>contato@cltexplica.com.br</p></div></div>
+        <div class="contact-item"><div class="contact-item-icon">📧</div><div><h4>E-mail</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="177478796376637857747b63726f677b7e74763974787a397565">[email&#160;protected]</a></p></div></div>
       </div>
       <div class="contact-form-box">
         <h3>✉️ Envie sua mensagem</h3>
@@ -594,7 +594,7 @@ footer{background:var(--gray-dark);color:rgba(255,255,255,.75);padding:56px 0 0}
     <section><div class="container"><div class="legal-content">
       <h1>Política de Privacidade</h1><p class="last-updated">Última atualização: 2025</p>
       <h2>Coleta de dados</h2><p>Coletamos apenas dados fornecidos voluntariamente e dados de navegação via cookies.</p>
-      <h2>Seus direitos (LGPD)</h2><p>Solicite acesso, correção ou exclusão: privacidade@cltexplica.com.br</p>
+      <h2>Seus direitos (LGPD)</h2><p>Solicite acesso, correção ou exclusão: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5323213a2532303a3732373613303f27362b233f3a30327d303c3e7d3121">[email&#160;protected]</a></p>
     </div></div></section>
   </div>
 
@@ -899,7 +899,7 @@ footer{background:var(--gray-dark);color:rgba(255,255,255,.75);padding:56px 0 0}
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 // ============================================
 // js/supabase-client.js
@@ -911,6 +911,7 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const { createClient } = supabase
 const sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 window.sb = sb
+window.SUPABASE_OK = true
 
 </script>
 <script>
@@ -949,10 +950,7 @@ async function doLogin() {
   const btn   = document.getElementById('login-btn-text')
   const err   = document.getElementById('login-error')
   btn.textContent = 'Entrando...'; err.classList.remove('show')
-  if (!window.sb || !window.SUPABASE_OK) {
-    err.textContent = '⚠️ Supabase não configurado. Edite js/supabase-client.js com suas credenciais.'
-    err.classList.add('show'); btn.textContent = 'Entrar no Dashboard'; return
-  }
+  // Supabase configurado
   try {
     const { data, error } = await sb.auth.signInWithPassword({ email, password: pass })
     if (error) { err.textContent = 'E-mail ou senha incorretos.'; err.classList.add('show'); btn.textContent = 'Entrar no Dashboard'; document.getElementById('login-pass').value = ''; return }
@@ -1171,9 +1169,4 @@ function calcRescisao(){const salario=parseFloat(document.getElementById('res-sa
 function updateCharCount(el,countId,max){const len=el.value.length,ct=document.getElementById(countId);if(!ct)return;ct.textContent=`${len} / ${max}`;ct.className='char-count'+(len>max?' over':len>max*.9?' warn':'')}
 function formatDate(d){if(!d)return '—';try{return new Date(d).toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'})}catch(e){return '—'}}
 function readTime(c){if(!c)return 3;return Math.max(2,Math.round(c.split(' ').length/200))}
-function renderMarkdown(md){if(!md)return '';return md.replace(/^## (.+)$/gm,'<h2>$1</h2>').replace(/^### (.+)$/gm,'<h3>$1</h3>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/_(.+?)_/g,'<em>$1</em>').replace(/^- (.+)$/gm,'<li>$1</li>').replace(/(<li>.*<\/li>)/gs,'<ul>$1</ul>').replace(/^> (.+)$/gm,'<blockquote style="border-left:4px solid var(--blue);padding:10px 16px;background:var(--blue-light);margin:16px 0;border-radius:0 8px 8px 0;">$1</blockquote>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank">$1</a>').split('\n\n').map(p=>p.trim().startsWith('<')?p:`<p>${p.replace(/\n/g,'<br>')}</p>`).join('\n')}
-function showToast(msg,type='neutral'){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.className='toast show'+(type==='success'?' success':type==='error'?' error':'');setTimeout(()=>{if(t)t.className='toast'},3500)}
-
-</script>
-</body>
-</html>
+function renderMarkdown(md){if(!md)return '';return md.replace(/^## (.+)$/gm,'<h2>$1</h2>').replace(/^### (.+)$/gm,'<h3>$1</h3>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/_(.+?)_/g,'<em>$1</em>').replace(/^- (.+)$/gm,'<li>$1</li>').replace(/(<li>.*<\/li>)/gs,'<ul>$1</ul>').replace(/^> (.+)$/gm,'<blockquote style="border-left:4px solid var(--blue);padding:10px 16px;background:var(--blue-light);margin:16px 0;border-radius:0 8px 8px 0;">$1</blockquote>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank">$1</a>'
