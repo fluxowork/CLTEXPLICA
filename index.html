@@ -942,10 +942,7 @@ async function doLogin() {
   const btn   = document.getElementById('login-btn-text')
   const err   = document.getElementById('login-error')
   btn.textContent = 'Entrando...'; err.classList.remove('show')
-  if (!window.sb || !window.SUPABASE_OK) {
-    err.textContent = '⚠️ Supabase não configurado. Edite js/supabase-client.js com suas credenciais.'
-    err.classList.add('show'); btn.textContent = 'Entrar no Dashboard'; return
-  }
+  
   try {
     const { data, error } = await sb.auth.signInWithPassword({ email, password: pass })
     if (error) { err.textContent = 'E-mail ou senha incorretos.'; err.classList.add('show'); btn.textContent = 'Entrar no Dashboard'; document.getElementById('login-pass').value = ''; return }
