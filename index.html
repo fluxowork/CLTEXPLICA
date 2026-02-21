@@ -568,7 +568,7 @@ footer{background:var(--gray-dark);color:rgba(255,255,255,.75);padding:56px 0 0}
       <div class="contact-info">
         <h2>Entre em contato</h2>
         <p style="color:var(--gray);margin-bottom:24px;">Tem uma dúvida, quer sugerir um tema ou propor uma parceria?</p>
-        <div class="contact-item"><div class="contact-item-icon">📧</div><div><h4>E-mail</h4><p>contato@cltexplica.com.br</p></div></div>
+        <div class="contact-item"><div class="contact-item-icon">📧</div><div><h4>E-mail</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f6c60617b6e7b604f6c637b6a777f63666c6e216c6062216d7d">[email&#160;protected]</a></p></div></div>
       </div>
       <div class="contact-form-box">
         <h3>✉️ Envie sua mensagem</h3>
@@ -594,7 +594,7 @@ footer{background:var(--gray-dark);color:rgba(255,255,255,.75);padding:56px 0 0}
     <section><div class="container"><div class="legal-content">
       <h1>Política de Privacidade</h1><p class="last-updated">Última atualização: 2025</p>
       <h2>Coleta de dados</h2><p>Coletamos apenas dados fornecidos voluntariamente e dados de navegação via cookies.</p>
-      <h2>Seus direitos (LGPD)</h2><p>Solicite acesso, correção ou exclusão: privacidade@cltexplica.com.br</p>
+      <h2>Seus direitos (LGPD)</h2><p>Solicite acesso, correção ou exclusão: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a6a68736c7b79737e7b7e7f5a79766e7f626a7673797b34797577347868">[email&#160;protected]</a></p>
     </div></div></section>
   </div>
 
@@ -899,7 +899,7 @@ footer{background:var(--gray-dark);color:rgba(255,255,255,.75);padding:56px 0 0}
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const SUPABASE_URL = 'https://hwhroyriokxluoyowcvx.supabase.com'
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3aHJveXJpb2t4bHVveW93Y3Z4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE1MTYzNzMsImV4cCI6MjA4NzA5MjM3M30.SxCAkKWWHUyDgqPTmf49cc28HlSbvqOQDSE9x5o7Z70'
 const { createClient } = supabase
@@ -915,8 +915,7 @@ window.sb = sb
 let currentUser = null, postTags = [], editingPostId = null, currentAdImageBase64 = null, editingAdDbId = null
 
 
-  try { return await fn(window.sb) } catch(e) { return { data: null, error: e, count: 0 } }
-}
+
 
 document.addEventListener('DOMContentLoaded', async () => {
   await checkSession()
@@ -1160,9 +1159,4 @@ function calcRescisao(){const salario=parseFloat(document.getElementById('res-sa
 function updateCharCount(el,countId,max){const len=el.value.length,ct=document.getElementById(countId);if(!ct)return;ct.textContent=`${len} / ${max}`;ct.className='char-count'+(len>max?' over':len>max*.9?' warn':'')}
 function formatDate(d){if(!d)return '—';try{return new Date(d).toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'})}catch(e){return '—'}}
 function readTime(c){if(!c)return 3;return Math.max(2,Math.round(c.split(' ').length/200))}
-function renderMarkdown(md){if(!md)return '';return md.replace(/^## (.+)$/gm,'<h2>$1</h2>').replace(/^### (.+)$/gm,'<h3>$1</h3>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/_(.+?)_/g,'<em>$1</em>').replace(/^- (.+)$/gm,'<li>$1</li>').replace(/(<li>.*<\/li>)/gs,'<ul>$1</ul>').replace(/^> (.+)$/gm,'<blockquote style="border-left:4px solid var(--blue);padding:10px 16px;background:var(--blue-light);margin:16px 0;border-radius:0 8px 8px 0;">$1</blockquote>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank">$1</a>').split('\n\n').map(p=>p.trim().startsWith('<')?p:`<p>${p.replace(/\n/g,'<br>')}</p>`).join('\n')}
-function showToast(msg,type='neutral'){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.className='toast show'+(type==='success'?' success':type==='error'?' error':'');setTimeout(()=>{if(t)t.className='toast'},3500)}
-
-</script>
-</body>
-</html>
+function renderMarkdown(md){if(!md)return '';return md.replace(/^## (.+)$/gm,'<h2>$1</h2>').replace(/^### (.+)$/gm,'<h3>$1</h3>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/_(.+?)_/g,'<em>$1</em>').replace(/^- (.+)$/gm,'<li>$1</li>').replace(/(<li>.*<\/li>)/gs,'<ul>$1</ul>').replace(/^> (.+)$/gm,'<blockquote style="border-left:4px solid var(--blue);padding:10px 16px;background:var(--blue-light);margin:16px 0;border-radius:0 8px 8px 0;">$1</blockquote>').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2" target="_blank">$1</a>'
