@@ -914,8 +914,7 @@ window.sb = sb
 
 let currentUser = null, postTags = [], editingPostId = null, currentAdImageBase64 = null, editingAdDbId = null
 
-async function sdb(fn) {
-  if (!window.sb || !window.SUPABASE_OK) return { data: null, error: null, count: 0 }
+
   try { return await fn(window.sb) } catch(e) { return { data: null, error: e, count: 0 } }
 }
 
@@ -927,7 +926,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 })
 
 async function checkSession() {
-  if (!window.sb || !window.SUPABASE_OK) return
+  if (!window.sb) return
   try { const { data: { session } } = await sb.auth.getSession(); if (session) currentUser = session.user } catch(e) {}
 }
 
@@ -983,7 +982,7 @@ async function loadCategories() {
 async function loadPublicArticles(category = null) {
   const grid = document.getElementById('articles-grid'); if (!grid) return
   let data = null
-  if (window.sb && window.SUPABASE_OK) {
+  if (window.sb) {
     let q = sb.from('posts').select('id,title,slug,excerpt,category,published_at').eq('status','published').order('published_at',{ascending:false}).limit(6)
     if (category) q = q.eq('category', category)
     const res = await q; data = res.data
